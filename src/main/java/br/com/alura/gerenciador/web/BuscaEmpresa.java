@@ -14,6 +14,7 @@ import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/busca")
 public class BuscaEmpresa extends HttpServlet{
 	@Override
@@ -23,7 +24,7 @@ public class BuscaEmpresa extends HttpServlet{
 		
 		writer.println("<html><body>");
 		writer.println("Resultado da busca:<br/>");
-		String filtro = req.getParameter("filtro");
+		String filtro = req.getParameter("filtro");		
 		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
 		writer.println("<ul>");
 		for (Empresa empresa : empresas) {
