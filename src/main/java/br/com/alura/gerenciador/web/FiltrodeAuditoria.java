@@ -28,33 +28,19 @@ public class FiltrodeAuditoria implements Filter{ //Entender o que é implements
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		
-		Cookie cookie = getUsuario(req);
-						
-		String usuario = "<deslogado>";
-		
-		if(cookie != null)
-		{
-			usuario = cookie.getValue();
-		}
+		String uri = req.getRequestURI();
+		String usuario = getUsuario(req);
 				
-		System.out.println("Usuário " + usuario + " acessando a URI " + req.getRequestURI());
+		System.out.println("Usuário " + usuario + " acessando a URI " + uri);
 		chain.doFilter(request, response);
 		
 	}
 
-	private Cookie getUsuario(HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		
-		if(cookies == null)
-			return null;
-		
-		for(Cookie cookie : cookies)
-		{
-			if(cookie.getName().equals("usuario.logado"))
-			{ return cookie; }
-		}
-		
-		return null;
+	private String getUsuario(HttpServletRequest req) {
+		Cookie cookie = new Cookies(req.getCookies()).buscaUsuarioLogado();
+		if(cookie == null) return "<deslogado>";
+		return cookie.getValue();
+			
 	}
 
 	@Override
