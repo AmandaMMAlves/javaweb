@@ -10,7 +10,7 @@
 			<p>Logado como ${usuarioLogado.email}</p>
 		</c:if>
 		
-		<form action="novaEmpresa" method="post">
+		<form action="faztudo?tarefa=NovaEmpresa" method="post">
 			Nome: <input type="text" name="nome"/><br/>
 			<input type="submit" value="Enviar"/>
 		</form>
@@ -21,7 +21,7 @@
 			<input type="submit" value="Enviar"/>
 		</form>
 		
-		<form action="logout" method="post">
+		<form action="faztudo?tarefa=Logout" method="post">
 			<input type="submit" value="Deslogar"/>
 		</form>
 	</body>
