@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet (urlPatterns = "/faztudo")
-public class fazTudo extends HttpServlet{
+@WebServlet (urlPatterns = "/executa")
+public class Controller extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
