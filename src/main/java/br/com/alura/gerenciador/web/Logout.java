@@ -21,13 +21,13 @@ public class Logout extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		
-		if(session.getAttribute("usuario.logado") == null)
+		if(session.getAttribute("usuarioLogado") == null)
 		{
 			writer.println(AmandaPreguica.MensagemCorpoHTML("Não há nenhum usuário logado"));
 		}
 		else
 		{
-			session.removeAttribute("usuario.logado");			
+			session.removeAttribute("usuarioLogado");			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");
 			dispatcher.forward(req, resp);
 		}

@@ -17,16 +17,6 @@ import br.com.alura.gerenciador.dao.UsuarioDAO;
 @WebServlet (urlPatterns = "/login")
 public class Login extends HttpServlet{
 	
-	/*final static Map<String, Usuario> USUARIOS_LOGADOS = new HashMap<>();
-	
-	public String login(Usuario usuario) //Preenchimento do HASHMAP e retorno do código do usuario
-	{
-		String codigo = System.currentTimeMillis() + "\\" + Math.random();
-		USUARIOS_LOGADOS.put(codigo, usuario);
-		return codigo;
-		
-	}*/
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
@@ -41,7 +31,7 @@ public class Login extends HttpServlet{
 			writer.println("<html><body>Usuario e senha inválidos</body></html>");
 		} else {
 			HttpSession session = req.getSession();
-			session.setAttribute("usuario.logado", usuario);
+			session.setAttribute("usuarioLogado", usuario);
 			writer.println("<html><body>Usuario " + email + " logado com sucesso</body></html>");
 		}
 		
